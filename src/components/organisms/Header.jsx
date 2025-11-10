@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ApperIcon from "@/components/ApperIcon";
 import SearchBar from "@/components/molecules/SearchBar";
+import Button from "@/components/atoms/Button";
 import { motion } from "framer-motion";
+import { useAuth } from "@/layouts/Root";
 
 const Header = ({ cartItemCount = 0, onMenuClick }) => {
   const navigate = useNavigate();
+  const { user, isAuthenticated } = useSelector(state => state.user);
+  const { logout } = useAuth();
 
   const handleSearch = (query) => {
     if (query.trim()) {
@@ -39,7 +44,46 @@ const Header = ({ cartItemCount = 0, onMenuClick }) => {
           </div>
 
           {/* Navigation Icons */}
-          <div className="flex items-center gap-4">
+<div className="flex items-center gap-4">
+            {/* Authentication Controls */}
+            {isAuthenticated ? (
+              <div className="flex items-center gap-3">
+                <span className="text-white text-sm">
+                  Hello, {user?.firstName || 'User'}
+                </span>
+                <Button
+                  onClick={logout}
+                  variant="ghost"
+                  size="sm"
+                  className="text-white hover:bg-white/10"
+                >
+                  <ApperIcon name="LogOut" size={16} />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Link to="/login">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-white hover:bg-white/10"
+                  >
+                    <ApperIcon name="LogIn" size={16} />
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button
+                    size="sm"
+                    className="bg-white text-primary hover:bg-gray-100"
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
+            )}
+
             <Link
               to="/cart"
               className="relative p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
