@@ -28,12 +28,12 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }) => {
         All Categories
       </button>
       
-      {categories.map((category) => (
+{categories.map((category) => (
         <div key={category.Id}>
           <button
             onClick={() => {
               onCategoryChange(category.name);
-              if (category.subcategories.length > 0) {
+              if (category.subcategories?.length > 0) {
                 toggleCategory(category.name);
               }
             }}
@@ -47,7 +47,7 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }) => {
               <span>{category.name}</span>
               <span className="text-xs opacity-70">({category.productCount})</span>
             </span>
-            {category.subcategories.length > 0 && (
+{category.subcategories?.length > 0 && (
               <ApperIcon
                 name={expandedCategories.has(category.name) ? "ChevronUp" : "ChevronDown"}
                 size={16}
@@ -56,7 +56,7 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }) => {
           </button>
           
           <AnimatePresence>
-            {expandedCategories.has(category.name) && category.subcategories.length > 0 && (
+{expandedCategories.has(category.name) && category.subcategories?.length > 0 && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
