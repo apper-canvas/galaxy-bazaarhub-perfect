@@ -49,7 +49,7 @@ const productService = {
         reviewCount: product.review_count_c || 0,
         inStock: product.in_stock_c || false,
         images: product.images_c ? product.images_c.split(',').map(img => img.trim()) : [],
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
+specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
         tags: product.Tags || ''
       }));
 
@@ -107,7 +107,7 @@ const productService = {
         reviewCount: product.review_count_c || 0,
         inStock: product.in_stock_c || false,
         images: product.images_c ? product.images_c.split(',').map(img => img.trim()) : [],
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
+specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
         tags: product.Tags || ''
       };
     } catch (error) {
@@ -170,7 +170,7 @@ const productService = {
         reviewCount: product.review_count_c || 0,
         inStock: product.in_stock_c || false,
         images: product.images_c ? product.images_c.split(',').map(img => img.trim()) : [],
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
+specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
         tags: product.Tags || ''
       }));
 
@@ -261,7 +261,7 @@ const productService = {
         reviewCount: product.review_count_c || 0,
         inStock: product.in_stock_c || false,
         images: product.images_c ? product.images_c.split(',').map(img => img.trim()) : [],
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
+specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
         tags: product.Tags || ''
       }));
 
@@ -378,7 +378,7 @@ const productService = {
         reviewCount: product.review_count_c || 0,
         inStock: product.in_stock_c || false,
         images: product.images_c ? product.images_c.split(',').map(img => img.trim()) : [],
-        specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
+specifications: product.specifications_c ? JSON.parse(product.specifications_c || '{}') : {},
         tags: product.Tags || ''
       }));
 
